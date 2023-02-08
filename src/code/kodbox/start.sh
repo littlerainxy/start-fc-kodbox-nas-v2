@@ -3,6 +3,11 @@ set +e
 
 echo "start the sh"
 ln -s /mnt/auto/.kodbox-1.35.031 /wwwroot
+mkdir -p /wwwroot
+if [ ! -d /wwwroot/.kodbox-1.35.031 ]; then
+  wget http://images.devsapp.cn/application/kodbox/kodbox-1.35.031.zip -O /wwwroot/kodbox-1.35.031.zip
+  cd /wwwroot && unzip kodbox-1.35.031.zip && mv kodbox-1.35.031 .kodbox-1.35.031 && rm kodbox-1.35.031.zip && cd -
+fi
 mkdir -p /wwwroot/sessions
 chown -R root:root /wwwroot
 
