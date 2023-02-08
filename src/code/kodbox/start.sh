@@ -9,7 +9,7 @@ if [ ! -d /wwwroot/.kodbox-1.35.031 ]; then
 fi
 mkdir -p /wwwroot/sessions
 
-chmod +755 /wwwroot
+chmod -R 755 /wwwroot
 
 mkdir -p /tmp/log/nginx/
 mkdir -p /tmp/var/nginx/
