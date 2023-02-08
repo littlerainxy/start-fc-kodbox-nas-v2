@@ -8,6 +8,7 @@ if [ ! -d /wwwroot/.kodbox-1.35.031 ]; then
   cd /wwwroot && unzip kodbox-1.35.031.zip && mv kodbox-1.35.031 .kodbox-1.35.031 && rm kodbox-1.35.031.zip && cd -
 fi
 mkdir -p /wwwroot/sessions
+
 chmod +755 /wwwroot
 
 mkdir -p /tmp/log/nginx/
