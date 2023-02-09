@@ -4,8 +4,10 @@ set +e
 echo "start the sh"
 if [ ! -d /mnt/nas/.kodbox-1.35.031 ]; then
   wget http://images.devsapp.cn/application/kodbox/kodbox-1.35.031.zip -O /mnt/nas/kodbox-1.35.031.zip
-  cd /mnt/nas && unzip kodbox-1.35.031.zip && mv kodbox-1.35.031 .kodbox-1.35.031 && rm kodbox-1.35.031.zip && cd -
+  cd /mnt/nas && unzip kodbox-1.35.031.zip && mv kodbox-1.35.031 .kodbox-1.35.031 && rm kodbox-1.35.031.zip
 fi
+
+chown -R root:root  /mnt/nas/.kodbox-1.35.031
 
 ln -s /mnt/nas/.kodbox-1.35.031 /wwwroot
 mkdir -p /wwwroot/sessions
