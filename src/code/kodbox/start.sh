@@ -2,14 +2,15 @@
 set +e
 
 echo "start the sh"
-mkdir -p /wwwroot
-if [ ! -f /wwwroot/index.php ]; then
-  wget http://images.devsapp.cn/application/kodbox/kodbox-1.35.031.zip -O /wwwroot/kodbox-1.35.031.zip
-  cd /wwwroot && unzip kodbox-1.35.031.zip -d /wwwroot && cp -r /wwwroot/kodbox-1.35.031/* /wwwroot/ && rm -r ./kodbox-1.35.031
+if [ ! -d /mnt/nas/.kodbox-1.35.031 ]; then
+  wget http://images.devsapp.cn/application/kodbox/kodbox-1.35.031.zip -O /mnt/nas/kodbox-1.35.031.zip
+  cd /mnt/nas && unzip kodbox-1.35.031.zip && mv kodbox-1.35.031 .kodbox-1.35.031 && rm kodbox-1.35.031.zip && cd -
 fi
+
+ln -s /mnt/nas/.kodbox-1.35.031 /wwwroot
 mkdir -p /wwwroot/sessions
 
-chmod -R 755 /wwwroot
+chown -R root:root /wwwroot
 
 mkdir -p /tmp/log/nginx/
 mkdir -p /tmp/var/nginx/
