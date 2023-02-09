@@ -3,9 +3,9 @@ set +e
 
 echo "start the sh"
 mkdir -p /wwwroot
-if [ ! -d /wwwroot/.kodbox-1.35.031 ]; then
+if [ ! -f /wwwroot/index.php ]; then
   wget http://images.devsapp.cn/application/kodbox/kodbox-1.35.031.zip -O /wwwroot/kodbox-1.35.031.zip
-  cd /wwwroot && unzip kodbox-1.35.031.zip && mv kodbox-1.35.031 .kodbox-1.35.031 && rm kodbox-1.35.031.zip && cd -
+  cd /wwwroot && unzip kodbox-1.35.031.zip -d /wwwroot &&  rm kodbox-1.35.031.zip
 fi
 mkdir -p /wwwroot/sessions
 
