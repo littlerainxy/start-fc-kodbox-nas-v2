@@ -2,6 +2,10 @@
 set +e
 
 echo "start the sh"
+if [ ! -d /mnt/nas/ ];then
+  mkdir -p /mnt/nas
+fi
+
 if [ ! -d /mnt/nas/.kodbox-1.35.031 ]; then
   wget http://images.devsapp.cn/application/kodbox/kodbox-1.35.031.zip -O /mnt/nas/kodbox-1.35.031.zip
   cd /mnt/nas && unzip kodbox-1.35.031.zip && mv kodbox-1.35.031 .kodbox-1.35.031 && rm kodbox-1.35.031.zip
